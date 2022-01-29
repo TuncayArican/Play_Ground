@@ -1,0 +1,101 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#nav-bar{
+
+    background-color: darkcyan;
+    color:white; 
+    display: flex;
+    align-items: center;
+    
+
+}
+#logo{
+    font-size: 3rem;
+    padding:1rem ;
+
+    flex-grow: 1;
+    
+}
+.nav{
+ 
+    flex-grow: 3;
+
+}
+.nav ul{
+    list-style: none;
+    display: flex;
+}
+.nav ul li{
+    flex-grow: 1;
+}
+.nav ul li a{
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+.banner{
+    background-color: red;
+}
+.banner-text{
+    background-color: purple;
+    padding:10% 0;
+}
+.banner-text-item{
+    background-color: pink;
+    width: 70%;
+    margin: auto;
+}
+.banner-text-item h2{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+.banner-text-item p {
+    font-size: 2rem;
+}
+.main{
+    display: flex;
+
+    padding: 20px;
+}
+.box1{
+    flex-grow: 1;
+    margin: 10px;
+}
+.box1 h3{
+    text-align: center;
+    color: pink;
+}
+.box1 p{
+    text-align: center;
+}
+
+.com h2{
+    padding-top: 10px;
+    color: pink;
+    text-align: center;
+}
+.name,.email, .submit{
+    text-align: center;
+    margin-top: 10px;
+}
+.submit input{
+    background-color: pink;
+    width: 140px;
+    height: 40px;
+}
+input, textarea{
+    width: 60%;
+    border: 1px solid pink;
+    border-radius: 3px;
+}
+.submit{
+    padding-bottom: 10px;
+}
+footer{
+    background-image: url("resim.jpg");
+    background-repeat: none ;
+    background-size: cover;
+}

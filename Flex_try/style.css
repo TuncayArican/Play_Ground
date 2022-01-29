@@ -1,0 +1,34 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.body{
+    display: flex;
+    background-color: brown;
+    justify-content: space-between;
+    background-color: aquamarine;
+    padding: 0 10px;
+
+}
+.linkler{
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    
+    flex-grow: 1;
+    
+}
+.span{
+    padding: 10px 0;
+    flex-grow: 1;
+}
+.link{
+    padding: 10px 0;
+    padding-right: 10px;
+    
+}
+
+.link a{
+    text-decoration: none;
+
+}
