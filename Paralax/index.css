@@ -1,0 +1,193 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.bg1{
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.3)100%), url(./img/bg.jpg);
+    height: 37.25rem;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.p1{
+    font-family: sans-serif;
+    font-size: 3rem;
+    background-color: #4D4D4D;
+    color: white;
+    padding: 2rem;
+    letter-spacing: 0.5rem;
+    border-top-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    outline-offset: 20px;
+    outline-style: inset;
+    outline-color: #A64DA6;
+    outline-width: 0.4rem;
+}
+.bg2{
+    text-align: center;
+    padding-top: 3rem;
+    color: #666666;
+}
+.bg2 p{
+    padding-top: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-bottom: 3rem;
+    text-align: left;
+    line-height: 1.7rem;
+}
+.bg2 p span{
+    font-weight: 900;
+}
+.bg3{
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.3)100%), url(./img/bg2.jpg);
+    height: 37.25rem;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg4{
+    text-align: center;
+    padding-top: 3rem;
+    background-color:rgb(40, 46, 51);
+    color:rgb(255, 255, 255);
+    
+}
+.bg4-p{
+    padding-top: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-bottom: 3rem;
+    text-align: center;
+    line-height: 1.7rem;
+    font-size;
+}
+.bg5{
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.3)100%), url(./img/bg3.jpg);
+    height: 37.25rem;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.p2{
+    font-family: sans-serif;
+    font-size: 3rem;
+    background-color: #4D4D4D;
+    color: white;
+    padding: 2rem;
+    letter-spacing: 0.5rem;
+    border-top-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    outline-offset: 20px;
+    outline-style: inset;
+    outline-color: #A64DA6;
+    outline-width: 0.4rem;
+}
+.bg6{
+    text-align: center;
+    padding-top: 3rem;
+    color: #666666;
+}
+.bg6 p{
+    padding-top: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-bottom: 3rem;
+    text-align: left;
+    line-height: 1.7rem;
+}
+.bg6 p span{
+    font-weight: 900;
+}
+.bg7{
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.3)100%), url(./img/bg4.jpg);
+    height: 37.25rem;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.p3{
+    font-family: sans-serif;
+    font-size: 3rem;
+    background-color: #4D4D4D;
+    color: white;
+    padding: 2rem;
+    letter-spacing: 0.5rem;
+    border-top-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    outline-offset: 20px;
+    outline-style: inset;
+    outline-color: #A64DA6;
+    outline-width: 0.4rem;
+}
+.bg8{
+    text-align: center;
+    padding-top: 3rem;
+    background-color:rgb(40, 46, 51);
+    color:rgb(255, 255, 255);
+    
+}
+.bg8-h4{
+    padding-top: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-bottom: 3rem;
+    text-align: center;
+    line-height: 1.7rem;
+}
+.bg8-p{
+    padding-top: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-bottom: 3rem;
+    text-align: center;
+    line-height: 1.7rem;
+}
+.bg9{
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.3)100%), url(./img/bg.jpg);
+    height: 37.25rem;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.p4{
+    font-family: sans-serif;
+    font-size: 3rem;
+    background-color: #4D4D4D;
+    color: white;
+    padding: 2rem;
+    letter-spacing: 0.5rem;
+    border-top-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    outline-offset: 20px;
+    outline-style: inset;
+    outline-color: #A64DA6;
+    outline-width: 0.4rem;
+}
