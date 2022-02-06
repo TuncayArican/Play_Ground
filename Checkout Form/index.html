@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckOut</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .main__left{
+            background-color: crimson;
+        }
+    </style>
+</head>
+
+<body>
+<header class="header">
+    <h1 class="header__title">Checkout</h1>
+</header>
+<main class="main">
+    <div class="main__left">
+        <form action="#">
+            <div class="main__left-contactinfo">
+                <h3>Contact information</h1><br>
+                    <label for="main__left-contactinfo__email">Email</label><br><br>
+                    <input type="email" name="email" id="main__left-contactinfo__email" placeholder="Enter your e-mail"><br><br>                   
+                    <label for="main__left-contactinfo__tel">Phone</label><br><br>
+                    <input type="tel" name="phone" id="main__left-contactinfo__tel" placeholder="Enter your phone">
+            </div>
+            <div class="main__left-shipping-adress">
+                <h3>Shipping Adress</h1><br>
+                    <label for="name">Full name</label><br><br>
+                    <input type="text" name="name" id="name" placeholder="Enter your name...."><br><br>
+                    <label for="address">Enter your adress</label><br><br>
+                    <input type="text" name="adress" id="adress" placeholder="Enter your address"><br><br>
+                    <label for="city">Enter your city</label><br><br>
+                    <input type="text" name="adress" id="adress" placeholder="Enter your city"><br><br>
+                    <div class="country_postcode">
+                        <div class="country">
+                            <label for="country">Country </label><br><br>
+                            <select name="country" id="country">
+                                <option value="turkey" selected>Turkey</option>
+                                <option value="usa">USA</option>
+                                <option value="canada">Canada</option>
+                             </select>
+                        </div>
+                        <div class="postcode">
+                            <label for="postcode">Post Code</label><br><br>
+                            <input type="text" name="postcode" id="postcode" placeholder="Enter your postal code">
+                        </div>
+                    </div><br><br>
+                    <input type="checkbox" name="info" id="info" value="Yes">
+                    <label for="info">See this information next time</label>                    
+            </div>
+        </form>
+    </div>
+    <div class="main__right">
+        <div class="main__right-top">
+            <div class="main__image">
+                <img src="./IMG/photo1.png" alt="Bag">
+            </div>
+            <div class="main__price">
+                <h4>Vintage Backbag</h4>
+                <h4>$54.99 <span class="main_price_cancel">$94.99</span></h4>
+                <input type="number" name="" class="amount" min="1" max="10" value="1"> 
+            </div>
+        </div>
+        <div class="main__right-middle">
+            <div class="main__image">
+                <img src="./IMG/photo2.png" alt="Bag">
+            </div>
+            <div class="main__price">
+                <h4>Levi Shoes</h4>
+                <h4>$74.99 <span class="main_price_cancel">$124.99</span></h4>
+                <input type="number" name="" class="amount" min="1" max="10" value="1"> 
+            </div>
+            </div>
+        </div>
+        <div class="main_right_bottom">
+            <div class="shipping">
+                <h4>Shipping</h4>
+                <h4>$19</h4>
+            </div>
+            <div class="Total">
+                <h4>Total</h4>
+                <h4>$148.98</h4>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <button>Continue</button>
+</footer>
+</body>
+</html>
