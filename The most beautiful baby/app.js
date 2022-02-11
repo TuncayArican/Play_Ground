@@ -10,5 +10,8 @@ bebek2.addEventListener("change", () => {
         resim.style.display="block"
         h1.innerText="İşte dünyanın en güzel bebeği"
         bebek2.style.display="none"
+    }else{
+        alert("Maalesef, bir daha dene :D")
+        bebek2.value=""
     }
 })
