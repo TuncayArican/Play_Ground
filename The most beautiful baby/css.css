@@ -1,0 +1,15 @@
+body{
+    background-color: aquamarine;
+}
+#bebek{
+    margin-top: 5rem;
+    text-align: center;
+}
+#resim {
+    text-align: center;
+    display: none;
+}
+#h1{
+    color:crimson;
+    opacity: 0.9;
+}
