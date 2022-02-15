@@ -54,7 +54,7 @@ button1.addEventListener("click", ()=>{
     button1.style.display = "none";
     h2.innerText="Write the number";
     list1=[0,100]
-    let tuncay=document.createElement("h1");
+    let tuncay=document.createElement("h5");
     tuncay.setAttribute("class", "tuncay");
     tuncay.innerText="Alo"
     h2.append(tuncay);
