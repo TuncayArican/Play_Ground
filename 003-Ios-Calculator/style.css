@@ -6,6 +6,11 @@
 #result{
     color: white;
     position: absolute;
+    top: auto;
+    bottom: 0.5rem;
+    right: .5rem;
+    font-size: 3rem;
+
 
 }
 .container{
