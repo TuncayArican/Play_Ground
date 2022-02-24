@@ -15,9 +15,9 @@
     <main>
 
         <div id="products-preview">
-            <form  id="customer-form">
+            <form action="GET" id="customer-form">
                 <div id="contact-information" class="data-form">
-                    <div class="campo">
+                    <div class="campo" id="products-preview">
                         <label for="name">Name</label>
                         <div class="input-field">
                             <input type="text" id="name" placeholder="Product Name">
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" >ADD TO CART</button>
+                <button type="submit">ADD TO CART</button>
             </form>
             <div class="loading" style="display: none;">
                 <img src="img/loading.gif">
@@ -134,7 +134,7 @@
                 </div>
                 <div class="buy-detail" id="cart-total">
                     <p>Total</p>
-                    <p>0</p>
+                    <p id="tuncay">0</p>
                 </div>
             </div>
 

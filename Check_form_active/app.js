@@ -1,6 +1,6 @@
 let minus= document.querySelectorAll(".fa-minus")
 let plus= document.querySelectorAll(".fa-plus")
-let quantity=document.querySelectorAll("#product-quantity")
+let quantity=document.getElementById("product-quantity")
 let product_line_price=document.querySelectorAll(".product-line-price")
 let remove=document.querySelectorAll(".remove-product")
 let cart_subtotal=document.querySelectorAll("#cart-subtotal p")[1]
@@ -9,14 +9,17 @@ let cart_total=document.querySelectorAll("#cart-total p")[1]
 let cart_shipping=document.querySelectorAll("#cart-shipping p")[1]
 let strong=document.querySelectorAll(".product-price p strong")
 let subtotal=0;
-let products = document.querySelectorAll(".product")
+let products = document.getElementsByClassName("product")[0]
 let button=document.querySelectorAll("#customer-form button")[0]
 let name1=document.getElementById("name")
 let quantity_new=document.getElementById("quantity")
 let price1=document.getElementById("price")
+let tuncay=document.getElementById("tuncay")
 let products_cont = document.querySelector(".products")
+console.log(products_cont);
+
 price()
-const createTask=()=>{
+const createTask =(number1)=>{
     return `
                     <div class="product">
                         <img src="img/photo1.png" alt="">
@@ -29,7 +32,7 @@ const createTask=()=>{
                                 <button>
                                     <i class="fas fa-minus"></i>
                                 </button>
-                                <p id="product-quantity">1</p> 
+                                <p id="product-quantity">${number1}</p> 
                                 <button>
                                     <i class="fas fa-plus"></i>
                                 </button>
@@ -43,10 +46,8 @@ const createTask=()=>{
                         </div>
 `
 }
-price1.addEventListener("click", ()=>{
-    products_cont.innerHTML+=createTask()
-    let quantity=document.querySelectorAll("#product-quantity")
-    console.log(quantity);
+tuncay.addEventListener("click", e=>{
+    products_cont.innerHTML+=createTask(e.target.innerText)
 
 })
 
