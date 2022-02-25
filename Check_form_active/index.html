@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/universal.css">
     <script src="https://kit.fontawesome.com/5c7edfd842.js" crossorigin="anonymous"></script>
     <title>Checkout</title>
 </head>
@@ -15,9 +15,9 @@
     <main>
 
         <div id="products-preview">
-            <form action="GET" id="customer-form">
+            <form id="customer-form">
                 <div id="contact-information" class="data-form">
-                    <div class="campo" id="products-preview">
+                    <div class="campo">
                         <label for="name">Name</label>
                         <div class="input-field">
                             <input type="text" id="name" placeholder="Product Name">
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit">ADD TO CART</button>
+                <div id="cart">ADD TO CART</div>
             </form>
             <div class="loading" style="display: none;">
                 <img src="img/loading.gif">
@@ -48,7 +48,7 @@
                         <div class="product-info">
                             <h2>Vintage Backbag</h2>
                             <div class="product-price">
-                                <p><strong >25.98</strong> <span class="line-through">34.99</span></p>
+                                <p><strong>25.98</strong> <span class="line-through">34.99</span></p>
                             </div>
                             <div class="quantity-controller">
                                 <button>
@@ -74,7 +74,7 @@
                         <div class="product-info">
                             <h2>Levi Shoes</h2>
                             <div class="product-price">
-                                <p><strong >45.99</strong> <span class="line-through">54.99</span></p>
+                                <p><strong>45.99</strong> <span class="line-through">54.99</span></p>
                             </div>
                             <div class="quantity-controller">
                                 <button>
@@ -100,7 +100,7 @@
                         <div class="product-info">
                             <h2>Antique Clock</h2>
                             <div class="product-price">
-                                <p><strong >74.99</strong> <span class="line-through">94.99</span></p>
+                                <p><strong>74.99</strong> <span class="line-through">94.99</span></p>
                             </div>
                             <div class="quantity-controller">
                                 <button>
@@ -134,13 +134,13 @@
                 </div>
                 <div class="buy-detail" id="cart-total">
                     <p>Total</p>
-                    <p id="tuncay">0</p>
+                    <p>0</p>
                 </div>
             </div>
 
         </div>
     </main>
-    <script src="app.js"></script>
+    <script src="checkout.js"></script>
 </body>
 
 </html>

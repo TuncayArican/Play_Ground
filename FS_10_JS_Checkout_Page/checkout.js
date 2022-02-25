@@ -1,5 +1,10 @@
 const taxRate = 0.18;
 const shippingPrice = 15.0;
+let products_cont = document.querySelector(".products")
+let price= document.getElementById("price")
+let name1= document.getElementById("name")
+let quantity= document.getElementById("quantity")
+let cart= document.getElementById("cart")
 
 window.addEventListener("load", ()=>{
     localStorage.setItem("taxRate", taxRate);
@@ -8,6 +13,42 @@ window.addEventListener("load", ()=>{
     sessionStorage.setItem("shippingPrice", shippingPrice);
     calculateCartTotal()
 });
+
+const createTask =()=>{
+    return `
+                    <div class="product">
+                        <img src="img/photo1.png" alt="">
+                        <div class="product-info">
+                            <h2>${name1.value}</h2>
+                            <div class="product-price">
+                                <p><strong >${price.value}</strong> <span class="line-through">${price.value*1.1}</span></p>
+                            </div>
+                            <div class="quantity-controller">
+                                <button>
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <p id="product-quantity">${quantity.value}</p> 
+                                <button>
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="product-removal">
+                                <button class="remove-product">
+                                    Remove
+                                </button>
+                            </div>
+                            <div class="product-line-price">${quantity.value*price.value}</div>
+                        </div>
+`
+calculateProductTotal();
+}
+
+
+cart.addEventListener("click", ()=>{
+    productsDiv.innerHTML+=createTask();
+    console.log("alo");
+
+})
 
 //capturing
 let productsDiv = document.querySelector(".products");
@@ -77,13 +118,13 @@ const calculateCartTotal = () =>{
     productTotalPriceDivs.forEach(eachProductTotalPriceDiv=>{
         subtotal += parseFloat(eachProductTotalPriceDiv.innerText)
     });
-    console.log(subtotal);
+    /* console.log(subtotal); */
     let taxPrice = subtotal * localStorage.getItem("taxRate");
-    console.log(taxPrice);
+    /* console.log(taxPrice); */
     let shipping = (subtotal > 0 ? parseFloat(localStorage.getItem("shippingPrice")) :0);
-    console.log(shipping);
+    /* console.log(shipping); */
     let cartTotal = subtotal + taxPrice + shipping;
-    console.log(cartTotal);
+    /* console.log(cartTotal); */
 
     document.querySelector("#cart-subtotal p:nth-child(2)").innerText = subtotal.toFixed(2);
     document.querySelector("#cart-tax p:nth-child(2)").innerText = taxPrice.toFixed(2);
