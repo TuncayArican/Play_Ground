@@ -1,5 +1,9 @@
 const taxRate = 0.18;
 const shippingPrice = 15.0;
+let name1= document.getElementById("name")
+let quantity= document.getElementById("quantity")
+let price1= document.getElementById("price")
+let cart= document.getElementById("cart")
 
 window.addEventListener("load", ()=>{
     localStorage.setItem("taxRate", taxRate);
@@ -8,6 +12,37 @@ window.addEventListener("load", ()=>{
     sessionStorage.setItem("shippingPrice", shippingPrice);
     calculateCartTotal()
 });
+const createTask = () =>{
+    return `<div class="product">
+    <img src="img/photo1.png" alt="">
+    <div class="product-info">
+        <h2>${name1.value}</h2>
+        <div class="product-price">
+            <p><strong>${price1.value}</strong> <span class="line-through">${(price1.value*1.2).toFixed()}</span></p>
+        </div>
+        <div class="quantity-controller">
+            <button>
+                <i class="fas fa-minus"></i>
+            </button>
+            <p id="product-quantity">${quantity.value}</p> 
+            <button>
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+        <div class="product-removal">
+            <button class="remove-product">
+                Remove
+            </button>
+        </div>
+        <div class="product-line-price">${price1.value*quantity.value}</div>
+    </div>
+    </div>
+    `
+}
+productsDiv.addEventListener("click", (e)=>{
+    productsDiv.innerHTML+=createTask();
+})
+
 
 //capturing
 let productsDiv = document.querySelector(".products");
