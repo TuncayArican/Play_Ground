@@ -1,0 +1,21 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+.container{
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    height: 100vh;
+    flex-direction: column ;
+}
+.main_part{
+    border: 0.3rem solid red;
+    margin-bottom: 1rem;
+    background-color: aquamarine;
+    color: blue;
+}
