@@ -1,66 +1,56 @@
 const container = document.querySelector(".container");
-const allSeats = document.querySelectorAll(".container .seat");   //container divin icindeki seat classina ait olanlari da bu sekilde alabiliyorum.
-const notOccupiedSeats = document.querySelector(".container .seat:not(.occupied)");   //container icindeki seat classina ait ama occupied clasina sahip olmayanlari aldik
+const allSeats = document.querySelectorAll(".container .seat");
+const notOccupiedSeats = document.querySelector(".container .seat:not(.occupied)");
 const count = document.getElementById("count");
 const film = document.getElementById("film");
 const total = document.getElementById("total");
 const movieSelectBox = document.getElementById("movie");
 
-//once localStorage sonra selectBox
+//first localStorage then selectBox
 //initial value == movieSelectBox.value
 //movieSelectBox.options[movieSelectBox.selectedIndex].value == movieSelectBox.value
-//sayfa yuklenince en guncel movie seat price
+//(The most actual movie seat price when the onload is complete)
 let currentTicketPrice = localStorage.getItem("selectedMoviePrice") ? localStorage.getItem("selectedMoviePrice") : movieSelectBox.options[movieSelectBox.selectedIndex].value;
 
-
-//movieIndex
-//sayfa yuklenince en guncel movie index
+//movieIndex (The most actual movie index when the onload is complete)
 let currentMovieIndex = localStorage.getItem("selectedMovieIndex") ? localStorage.getItem("selectedMovieIndex") : movieSelectBox.selectedIndex;
 
-
-window.onload = () => {
+window.onload = () =>{
     displaySeats();
     updateMovieInfo();
 }
-
 //change film and localStorage
-movieSelectBox.addEventListener("change", (e) => {
-    let ticketPrice = e.target.value; 
+movieSelectBox.addEventListener("change", (e)=>{
+    let ticketPrice = e.target.value;
     let movieIndex = e.target.selectedIndex;
     console.log(movieIndex);
     updateMovieInfo();
-    setMovieDataLocalStorage(ticketPrice, movieIndex);
+    setMovieDataToLocalStorage(ticketPrice, movieIndex);
 });
-
-//add to storage = movie her degistiginde localStorage daki degerlerini guncelledik
-const setMovieDataLocalStorage = (ticketPrice, movieIndex) => {
+//add to storage
+const setMovieDataToLocalStorage = (ticketPrice, movieIndex) => {
     localStorage.setItem("selectedMovieIndex", movieIndex);
     localStorage.setItem("selectedMoviePrice", ticketPrice);
 }
-
-
 //capturing
-container.addEventListener("click", (e) => {
+container.addEventListener("click", (e)=>{
     console.log(e.target.classList);
-    if (e.target.classList.contains("seat") && !e.target.classList.contains("occupied")) {
+    if(e.target.classList.contains("seat") && !e.target.classList.contains("occupied")){
         e.target.classList.toggle("selected");
-        console.log(e.target.classList)
-    } 
-
-    updateMovieInfo();    
+        console.log(e.target.classList);
+    }
+    // if(e.target.classList.contains("seat") && e.target.classList.contains("occupied")){
+    //     alert("PLease choose an unreserved seat!");
+    // }
+    updateMovieInfo();
 });
-
-
 //update paragraph and calculation
-const updateMovieInfo = ()=> {
-    let selectedSeats = document.querySelectorAll(".row .seat.selected"); //aralarinda bosluk varsa parent iliskisi var, ama bosluk yoksa ayni elemenler icindeki classlar. yani burda row seat ve selected in parenti, ama seat ve selected ayni elemente ait yazarken ikisi arasinda bozluk olmamasi lazim.
+const updateMovieInfo = () =>{
+    let selectedSeats = document.querySelectorAll(".row .seat.selected");
+    // let selectedSeats2 = document.querySelectorAll(".row .seat .selected");
 
-
-    //selected seat'i maple gez, allSeats'in icerisinde ariyorum, eger selected olan koltuk tum koltuklarin icerisinde varsa secili olan koltugun indexini al arraya at. Aslinda sayilan biletlerin indexini buluyoruz.
     let selectedSeatsIndexArray = [...selectedSeats].map(seat => [...allSeats].indexOf(seat));
-    console.log(selectedSeatsIndexArray);
-
-    //array ile yapilan islemi json.stingify ile localstorage da yaptik (local stoge string verileri kabul ettigindne bu islemi yaptik. local storage'a girerken jSON.stringify() ile stringe cevirip, cikarken de JSON.parse() ile de tekrar arraye cevirebiliyoruz)
+    // console.log(selectedSeatsIndexArray);
     localStorage.setItem("selectedSeats", JSON.stringify(selectedSeatsIndexArray));
 
     count.innerText = selectedSeatsIndexArray.length;
@@ -68,16 +58,15 @@ const updateMovieInfo = ()=> {
     film.innerText = movieSelectBox.options[movieSelectBox.selectedIndex].innerText.split("(")[0];
 }
 
-
 //after refresh get selectedSeats and add class "selected"
-const displaySeats = () => {
+const displaySeats = () =>{
     movieSelectBox.selectedIndex = currentMovieIndex;
-    let selectedSeatsFromStorage = JSON.parse(localStorage.getItem("selectedSeats")); //string olani tekrar arraye ceviriyoruz
+    let selectedSeatsFromStorage = JSON.parse(localStorage.getItem("selectedSeats"));
     console.log(selectedSeatsFromStorage);
     if(selectedSeatsFromStorage !== null && selectedSeatsFromStorage.length > 0){
-        allSeats.forEach((seat, index) => {
-            //selectedIndex.indexOf(index) == -1 ==> false
-            //selectedIndex.indexOf(index) > -1 ==> true
+        allSeats.forEach((seat, index)=>{
+            // selectedSeats.indexOf(index) == -1 ==> false
+            // selectedSeats.indexOf(index) > -1 ==> true
             if(selectedSeatsFromStorage.indexOf(index) > -1){
                 seat.classList.add("selected");
             }
