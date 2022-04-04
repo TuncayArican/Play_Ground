@@ -1,8 +1,10 @@
 import './App.css';
 import Navbar from './components/navbar/Navbar';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./components/about/About";
 import Login from './components/login/Login';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Main from './components/recipe/Main';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -11,6 +13,7 @@ function App() {
         <Navbar />
         <div className="main">
           <Routes>
+            <Route path="/" element={<Main />} />
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<h1>NOT FOUND</h1>} />
