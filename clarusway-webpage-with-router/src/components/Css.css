@@ -1,0 +1,11 @@
+img{
+    display: block;
+    margin:3rem auto;
+}
+h3{
+    text-align: center;
+}
+p{
+    margin: 1rem;
+    text-indent: 2rem;
+}
