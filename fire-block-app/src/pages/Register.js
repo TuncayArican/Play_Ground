@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import {
   Container,
   Box,
@@ -11,18 +11,23 @@ import {
 
 import { signup,login, loginWithGoogle } from "../helpers/firebase";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Register = () => {
   const navigate = useNavigate();
-  const currentUser= "tuncay"
+  const { currentUser } = useContext(AuthContext);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
   useEffect(() => {
+
     if (currentUser) {
       navigate("/");
     }
   }, [currentUser, navigate]);
+
+  console.log("merhaba")
+  console.log(currentUser)
 
   const handleSingUp = () => {
     signup(email, password)

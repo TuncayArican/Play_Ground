@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../helpers/firebase";
 
@@ -8,14 +9,15 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import LockOpenIcon from "@mui/icons-material/LockOpen";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 
+
 const MyNavbar = () => {
   const navigate = useNavigate();
+  const { currentUser } = useContext(AuthContext);
+  console.log(currentUser)
 
-  const currentUser = "tuncay";
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleMenu = (event) => {

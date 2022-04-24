@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
 import {
   Container,
   Box,
@@ -8,16 +8,16 @@ import {
   TextField,
   Button,
 } from "@mui/material";
-
 import { login, loginWithGoogle} from "../helpers/firebase";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
 
 
 const Login = () => {
   const navigate = useNavigate();
   /* const { currentUser } = useSelector(state => state.auth) */
-  const currentUser="tuncay"
+  const { currentUser } = useContext(AuthContext);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
