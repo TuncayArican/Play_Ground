@@ -59,13 +59,6 @@ const MyNavbar = () => {
                 onClick={handleMenu}
                 color="inherit"
               >
-                <Typography
-                  sx={{
-                    marginRight: "1rem",
-                  }}
-                >
-                  {currentUser?.displayName}
-                </Typography>
                 <AccountCircle />
               </IconButton>
 
@@ -85,7 +78,7 @@ const MyNavbar = () => {
                 onClose={handleClose}
               >
                 <MenuItem onClick={() => navigate("/profile")} >Profile</MenuItem>
-                <MenuItem >New</MenuItem>
+                <MenuItem onClick={() => navigate("/new-blog")} >New</MenuItem>
                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
               </Menu>
             </div>
