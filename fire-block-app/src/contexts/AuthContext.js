@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { userObserver } from "../helpers/firebase";
-import {AddUser} from "../helpers/functions"
+import {AddUser, useFetch} from "../helpers/functions"
 
 export const AuthContext = createContext();
 
@@ -19,8 +19,13 @@ const AuthContextProvider = ({ children }) => {
     userObserver(setCurrentUser);
   }, []);
 
+
+  const editHandler=(id,title,imageUrl,content)=>{
+    setInfo({id,title,imageUrl,content})
+
+  }
   return (
-    <AuthContext.Provider value={{ currentUser, info, setInfo, handleFormSubmit  }}>
+    <AuthContext.Provider value={{ currentUser, info, setInfo, handleFormSubmit, useFetch, editHandler }}>
       {children}
     </AuthContext.Provider>
   );
