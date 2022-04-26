@@ -47,7 +47,7 @@ const MyNavbar = () => {
             sx={{ flexGrow: 1, cursor: "pointer" }}
             onClick={() => navigate("/")}
           >
-            Tuncay
+            <code>{"<Tuncay/> "}</code>
           </Typography>
 
           {currentUser ? (

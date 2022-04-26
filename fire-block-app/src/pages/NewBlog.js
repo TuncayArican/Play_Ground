@@ -11,8 +11,10 @@ import { AccountCircle } from "@mui/icons-material";
 import { AuthContext } from "../contexts/AuthContext";
 
 
+
 const NewBlog = () => {
   const { info, handleFormSubmit , setInfo} = useContext(AuthContext);
+  
   const handleChange=(e)=>{
     e.preventDefault();
     const {name,value}=e.target

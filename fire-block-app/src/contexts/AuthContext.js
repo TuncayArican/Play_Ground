@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { userObserver } from "../helpers/firebase";
-import {AddUser, useFetch} from "../helpers/functions"
+import {AddUser,EditUser, useFetch} from "../helpers/functions"
 
 export const AuthContext = createContext();
 
@@ -9,10 +9,14 @@ const initialValues={title:"",imageUrl:"",content:""}
 const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
   const [info,setInfo]=useState(initialValues);
+
   const handleFormSubmit=(e)=>{
-    e.preventDefault();
-    console.log(info)
-    AddUser(info)}
+      if (info.id) {
+      EditUser(info)
+  }
+   else  {AddUser(info)}
+ }
+
   
 
   useEffect(() => {
