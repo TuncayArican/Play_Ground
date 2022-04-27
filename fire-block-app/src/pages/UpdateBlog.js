@@ -11,21 +11,25 @@ import {
 } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
 import { AuthContext } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const UpdateBlog = () => {
+  const { info, handleFormSubmit , setInfo, editHandler} = useContext(AuthContext);
+  const navigate = useNavigate();
   const location = useLocation();
   const item = location.state.item;
-  const [item1, setItem1] = useState((item))
-
-  const { handleFormSubmit } = useContext(AuthContext);
+  setInfo(item)
 
   const handleChange=(e)=>{
     e.preventDefault();
-
-    const {name,value}=e.target
+     const {name,value}=e.target
     console.log(name,value)
-    setItem1({...item1,[name]:value})}
- 
+   } 
+
+  
+
+
+  console.log(info)
   return (
     <Grid
       textAlign="center"
@@ -54,7 +58,7 @@ const UpdateBlog = () => {
             <TextField
               variant="outlined"
               name="title"
-              value={item1.title}
+              value={info?.title}
               onChange={handleChange}
               placeholder="Title"
               InputProps={{
@@ -68,7 +72,7 @@ const UpdateBlog = () => {
             <TextField
               variant="outlined"
               name="imageUrl"
-              value={item1.imageUrl}
+              value={info?.imageUrl}
               onChange={handleChange}
               placeholder="ImageUrl"
               InputProps={{
@@ -82,7 +86,7 @@ const UpdateBlog = () => {
              <TextField
               variant="outlined"
               name="content"
-              value={item1.content}
+              value={info?.content}
               onChange={handleChange}
               placeholder="Content"
               InputProps={{
@@ -93,7 +97,7 @@ const UpdateBlog = () => {
                 ),
               }}
             />
-            <Button variant="contained" type="submit" value="Submit">
+            <Button variant="contained" type="submit" value="Submit" >
               Update
             </Button>
           </Stack>

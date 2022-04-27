@@ -11,12 +11,12 @@ const AuthContextProvider = ({ children }) => {
   const [info,setInfo]=useState(initialValues);
 
   const handleFormSubmit=(e)=>{
-      if (info.id) {
-      EditUser(info)
+    e.preventDefault();
+   if (info.id) {
+     EditUser(info)
+   }
+    else  {AddUser(info)}
   }
-   else  {AddUser(info)}
- }
-
   
 
   useEffect(() => {
@@ -26,8 +26,8 @@ const AuthContextProvider = ({ children }) => {
 
   const editHandler=(id,title,imageUrl,content)=>{
     setInfo({id,title,imageUrl,content})
-
   }
+  
   return (
     <AuthContext.Provider value={{ currentUser, info, setInfo, handleFormSubmit, useFetch, editHandler }}>
       {children}

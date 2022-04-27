@@ -13,14 +13,14 @@ import { AuthContext } from "../contexts/AuthContext";
 
 
 const NewBlog = () => {
-  const { info, handleFormSubmit , setInfo} = useContext(AuthContext);
+  const { info, handleFormSubmit , setInfo, editHandler} = useContext(AuthContext);
   
   const handleChange=(e)=>{
     e.preventDefault();
     const {name,value}=e.target
     console.log(name,value)
-    setInfo({...info,[name]:value})}
-    console.log(info)
+    editHandler()}
+
   return (
     <Grid
       textAlign="center"
