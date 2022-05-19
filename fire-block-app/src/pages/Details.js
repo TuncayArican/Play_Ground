@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect} from "react";
 import { useLocation } from 'react-router-dom'
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -8,14 +8,33 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { CardMedia } from "@mui/material";
 import { AuthContext } from "../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams} from "react-router-dom";
+import { CloseFullscreen } from "@mui/icons-material";
 
 const Details = () => {
-  const { currentUser} = useContext(AuthContext);
+  const { currentUser, useFetch, info, handleFormSubmit ,DeleteUser, setInfo, editHandler} = useContext(AuthContext);
+  const { id } = useParams();
+  const {isLoading,contactList}=useFetch();
+  const [result,setResult]=useState();
+
+
+const handleDelete=()=>{
+  DeleteUser(id)
+  navigate("/")
+  }
+
+
+
+ useEffect(() => {
+  const res = contactList?.filter((item) => item.id === id);
+  const newRes = res?res[0]:null
+  setResult(newRes)
+},[contactList])
+
   const navigate = useNavigate();
-  const location = useLocation();
-  const item = location.state.item;
+  console.log(info); 
   return (
+
       <Box
         xs={{ d: "flex" }}
         display="flex"
@@ -28,28 +47,32 @@ const Details = () => {
             <CardMedia
               component="img"
               height="250"
-              image={item?.imageUrl}
+              image={result?.imageUrl}
               alt="img"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                {item?.title}
+                {result?.title}
               </Typography>
 
               <Typography variant="body2" color="text.secondary">
-                {item?.content}
+                {result?.content}
               </Typography>
               <Typography gutterBottom variant="h5" component="div">
                 {currentUser?.email}
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small" onClick={() => navigate(`/update-blog/${item.id}`,{ state: { item } } )}>
+             <Button size="small" onClick={() => navigate(`/update-blog/${id}` )}>
                 Update
+              </Button>
+              <Button size="small" onClick={() =>handleDelete()}>
+                Delete
               </Button>
             </CardActions>
           </Card>
       </Box>
+
     )}
 
 export default Details

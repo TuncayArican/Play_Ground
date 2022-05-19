@@ -52,6 +52,13 @@ const MyNavbar = () => {
 
           {currentUser ? (
             <div>
+              <Typography
+                  sx={{
+                    marginRight: "1rem",
+                  }}
+                >
+                  {currentUser?.displayName}
+                </Typography>
               <IconButton
                 size="large"
                 aria-controls="menu-appbar"
@@ -77,6 +84,7 @@ const MyNavbar = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
+  
                 <MenuItem onClick={() => navigate("/profile")} >Profile</MenuItem>
                 <MenuItem onClick={() => navigate("/new-blog")} >New</MenuItem>
                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
@@ -91,13 +99,7 @@ const MyNavbar = () => {
                 onClick={handleMenu}
                 color="inherit"
               >
-                <Typography
-                  sx={{
-                    marginRight: "1rem",
-                  }}
-                >
-                  {currentUser?.displayName}
-                </Typography>
+  
                 <AccountCircle />
               </IconButton>
 

@@ -1,5 +1,3 @@
-import React from 'react'
-import { useLocation } from 'react-router-dom'
 import { useEffect, useState,useContext } from "react";
 import {
   Grid,
@@ -11,25 +9,31 @@ import {
 } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
 import { AuthContext } from "../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams} from "react-router-dom";
+
+
 
 const UpdateBlog = () => {
-  const { info, handleFormSubmit , setInfo, editHandler} = useContext(AuthContext);
+  const { info, handleFormSubmit , setInfo, editHandler, useFetch} = useContext(AuthContext);
   const navigate = useNavigate();
-  const location = useLocation();
-  const item = location.state.item;
-  setInfo(item)
 
+  const { id } = useParams();
+  const {isLoading,contactList}=useFetch();
+  const [result,setResult]=useState();
+
+  useEffect(() => {
+    const res = contactList?.filter((item) => item.id === id);
+    const newRes = res?res[0]:null
+    setResult(newRes)
+  },[contactList])
+  
   const handleChange=(e)=>{
     e.preventDefault();
-     const {name,value}=e.target
+    const {name,value}=e.target
     console.log(name,value)
-   } 
+    setInfo({...info,[name]:value})
+}
 
-  
-
-
-  console.log(info)
   return (
     <Grid
       textAlign="center"
@@ -37,20 +41,7 @@ const UpdateBlog = () => {
       direction="column"
       style={{ width: "300" }}
     >
-      <p className="contact-header">
-        <div>
-          <a
-            href="https://github.com/clarusway"
-            className="design"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <code>{"<Clarusway/> "}</code>
-          </a>
-        </div>
-        <span className="design header">design</span>
-      </p>
-      <h2 className="contact-header">Add Blog</h2>
+      <h2 className="contact-header">Update BLog</h2>
     
       <Box style={{ backgroundColor: "white", padding: "20px" }}>
         <form onSubmit={handleFormSubmit}>
@@ -58,7 +49,7 @@ const UpdateBlog = () => {
             <TextField
               variant="outlined"
               name="title"
-              value={info?.title}
+              value={result?.title}
               onChange={handleChange}
               placeholder="Title"
               InputProps={{
@@ -72,7 +63,7 @@ const UpdateBlog = () => {
             <TextField
               variant="outlined"
               name="imageUrl"
-              value={info?.imageUrl}
+              value={result?.imageUrl}
               onChange={handleChange}
               placeholder="ImageUrl"
               InputProps={{
@@ -86,7 +77,7 @@ const UpdateBlog = () => {
              <TextField
               variant="outlined"
               name="content"
-              value={info?.content}
+              value={result?.content}
               onChange={handleChange}
               placeholder="Content"
               InputProps={{
@@ -97,8 +88,8 @@ const UpdateBlog = () => {
                 ),
               }}
             />
-            <Button variant="contained" type="submit" value="Submit" >
-              Update
+            <Button variant="contained" type="submit" value="Submit">
+              Update Blog
             </Button>
           </Stack>
         </form>
@@ -107,4 +98,4 @@ const UpdateBlog = () => {
   );
 };
 
-export default UpdateBlog
+export default UpdateBlog;

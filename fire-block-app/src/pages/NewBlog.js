@@ -9,17 +9,20 @@ import {
 } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
 import { AuthContext } from "../contexts/AuthContext";
+import { useNavigate} from "react-router-dom";
 
 
 
 const NewBlog = () => {
   const { info, handleFormSubmit , setInfo, editHandler} = useContext(AuthContext);
+  const navigate = useNavigate();
   
   const handleChange=(e)=>{
     e.preventDefault();
     const {name,value}=e.target
     console.log(name,value)
-    editHandler()}
+    setInfo({...info,[name]:value})
+}
 
   return (
     <Grid
@@ -88,7 +91,7 @@ const NewBlog = () => {
                 ),
               }}
             />
-            <Button variant="contained" type="submit" value="Submit">
+            <Button variant="contained" type="submit" value="Submit" /* onClick={() =>navigate("/")} */>
               ADD
             </Button>
           </Stack>

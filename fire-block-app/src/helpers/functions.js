@@ -2,9 +2,11 @@ import {useState,useEffect} from "react";
 import { getDatabase,ref,set,push,onValue, remove,update} from "firebase/database";
 
 
+
 // Bilgi Ekleme
 export const AddUser=(info)=>{
     const db = getDatabase();
+
     const userRef=ref(db,"milestone");
     const newUserRef=push(userRef)
     set((newUserRef),{
@@ -12,6 +14,7 @@ export const AddUser=(info)=>{
         imageUrl:info.imageUrl,
         content:info.content,
     })
+
 }
 
 // Bilgi Çağırma
@@ -44,9 +47,10 @@ export const useFetch=()=>{
 export const DeleteUser=(id)=>{
         const db = getDatabase();
         const userRef=ref(db,"milestone");
-        remove(ref(db,"baglanti/"+id))
+        remove(ref(db,"milestone/"+id))
 
 }
+
 
 // Bilgi Değiştirme
 

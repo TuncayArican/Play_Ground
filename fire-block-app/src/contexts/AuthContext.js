@@ -1,6 +1,8 @@
 import { createContext, useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 import { userObserver } from "../helpers/firebase";
-import {AddUser,EditUser, useFetch} from "../helpers/functions"
+import {AddUser,EditUser,DeleteUser, useFetch} from "../helpers/functions"
+import { useNavigate} from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -12,10 +14,8 @@ const AuthContextProvider = ({ children }) => {
 
   const handleFormSubmit=(e)=>{
     e.preventDefault();
-   if (info.id) {
-     EditUser(info)
-   }
-    else  {AddUser(info)}
+    AddUser(info)
+
   }
   
 
@@ -29,7 +29,7 @@ const AuthContextProvider = ({ children }) => {
   }
   
   return (
-    <AuthContext.Provider value={{ currentUser, info, setInfo, handleFormSubmit, useFetch, editHandler }}>
+    <AuthContext.Provider value={{ currentUser, info, setInfo, handleFormSubmit, useFetch, editHandler , DeleteUser}}>
       {children}
     </AuthContext.Provider>
   );

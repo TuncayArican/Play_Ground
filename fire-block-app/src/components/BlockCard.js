@@ -43,6 +43,7 @@ const {isLoading,contactList}=useFetch();
         flexWrap="wrap"
       >
         {contactList?.map((item, index) => (
+          
           <Card sx={{ maxWidth: 345, m: 5, maxHeight: 600 }} key={index}>
             <CardMedia
               component="img"
@@ -66,12 +67,10 @@ const {isLoading,contactList}=useFetch();
             </CardContent>
             <CardActions>
               
-              <Button size="small"  onClick={() => navigate(`/details/${item.id}`,{ state: { item } } )}>
+              <Button size="small"  onClick={() => navigate(`/details/${item.id}`)}>
                 Detail
               </Button>
             </CardActions>
-
-
           </Card>
         ))}
       </Box>
