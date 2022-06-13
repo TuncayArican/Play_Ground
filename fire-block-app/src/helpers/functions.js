@@ -55,6 +55,7 @@ export const DeleteUser=(id)=>{
 // Bilgi Değiştirme
 
 export const EditUser=(info)=>{
+    console.log(info)
     const db = getDatabase();
     const updates = {};
 

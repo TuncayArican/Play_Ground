@@ -14,12 +14,12 @@ import { useNavigate, useParams} from "react-router-dom";
 
 
 const UpdateBlog = () => {
-  const { info, handleFormSubmit , setInfo, editHandler, useFetch} = useContext(AuthContext);
+  const {result, setResult, handleFormEdit, useFetch} = useContext(AuthContext);
   const navigate = useNavigate();
 
   const { id } = useParams();
-  const {isLoading,contactList}=useFetch();
-  const [result,setResult]=useState();
+  const {contactList}=useFetch();
+
 
   useEffect(() => {
     const res = contactList?.filter((item) => item.id === id);
@@ -31,7 +31,9 @@ const UpdateBlog = () => {
     e.preventDefault();
     const {name,value}=e.target
     console.log(name,value)
-    setInfo({...info,[name]:value})
+    setResult({...result,[name]:value})
+    console.log(result);
+    console.log(contactList);
 }
 
   return (
@@ -44,7 +46,7 @@ const UpdateBlog = () => {
       <h2 className="contact-header">Update BLog</h2>
     
       <Box style={{ backgroundColor: "white", padding: "20px" }}>
-        <form onSubmit={handleFormSubmit}>
+        <form onSubmit={handleFormEdit}>
           <Stack spacing={3} direction="column">
             <TextField
               variant="outlined"
