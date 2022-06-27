@@ -1,10 +1,11 @@
 import {useState,useEffect} from "react";
 import { getDatabase,ref,set,push,onValue, remove,update} from "firebase/database";
-
+import { useNavigate} from "react-router-dom";
 
 
 // Bilgi Ekleme
 export const AddUser=(info)=>{
+    
     const db = getDatabase();
 
     const userRef=ref(db,"milestone");

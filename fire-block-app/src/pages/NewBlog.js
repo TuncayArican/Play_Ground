@@ -91,7 +91,7 @@ const NewBlog = () => {
                 ),
               }}
             />
-            <Button variant="contained" type="submit" value="Submit" /* onClick={() =>navigate("/")} */>
+            <Button variant="contained" type="submit" value="Submit"  >
               ADD
             </Button>
           </Stack>

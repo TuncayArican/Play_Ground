@@ -14,6 +14,7 @@ const AuthContextProvider = ({ children }) => {
   const [info,setInfo]=useState(initialValues);
   const [result,setResult]=useState(initialValues1);
 
+
   const handleFormSubmit=(e)=>{
     e.preventDefault();
     AddUser(info)
