@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "./App.css";
-import AddTask from "./components/AddTask";
+
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -26,7 +27,7 @@ function App() {
     },
   ]);
 
-  const [showAddTask, setShowAddTask] = useState(false);
+  const [showLogo, setshowLogo] = useState(false);
 
   const addTask = (newTask) => {
     const id = Math.floor(Math.random() * 1000 + 1);
@@ -34,16 +35,23 @@ function App() {
     setTasks([...tasks, addNewTask]);
   };
 
-  const deleteTask = (Id) => {
-    setTasks(tasks.filter((task) => task.id !== Id));
+  const deleteTask = (id) => {
+    const filteredTask=tasks.filter((tutor) => tutor.id !== id)
+    setTasks(filteredTask);
   };
-  
+
+  const toggleShow = (id) => {
+    
+  tasks.filter((tutor) => tutor.id == id).map((tutor) => ({...tasks, isDone: !tutor.isDone}));
+
+  };
 
   return (
     <div className="container">
-      <Header title="TASK TRACKER" showAddTask = {showAddTask} setShowAddTask={setShowAddTask}/>
-      {showAddTask&&<AddTask addTask={addTask} />}
-      <Tasks tasks={tasks} deleteTask={deleteTask}/>
+      
+      <Header showLogo= {showLogo} setshowLogo = {setshowLogo}/>
+      {showLogo && <AddTask addTask={addTask}/>}
+      <Tasks tasks={tasks} deleteTask={deleteTask} toggleShow={toggleShow}/>
     </div>
   );
 }

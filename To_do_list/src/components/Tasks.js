@@ -1,16 +1,13 @@
 import Duty from "./Duty";
 
-import React from 'react'
-
-const Tasks = ({tasks, deleteTask}) => {
-  {}
+const Tasks = ({ tasks, deleteTask, toggleShow }) => {
   return (
     <div>
-        {tasks.map((task) => (
-          <Duty duty={task} deleteTask={deleteTask} />
+      {tasks.map((task) => (
+        <Duty task={task} deleteTask={deleteTask} toggleShow={toggleShow} />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Tasks
+export default Tasks;
