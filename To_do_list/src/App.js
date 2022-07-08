@@ -40,10 +40,13 @@ function App() {
     setTasks(filteredTask);
   };
 
-  const toggleShow = (id) => {
-    
-  tasks.filter((tutor) => tutor.id == id).map((tutor) => ({...tasks, isDone: !tutor.isDone}));
-
+  const toggleShow = (toggleDoneId) => {
+    // console.log("double click", toggleDoneId);
+    setTasks(
+      tasks.map((task) =>
+        task.id === toggleDoneId ? { ...task, isDone: !task.isDone } : task
+      )
+    );
   };
 
   return (
