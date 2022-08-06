@@ -46,6 +46,7 @@ export const login = (email, password) => {
 
 export const logout = () => {
   signOut(auth);
+  
 };
 
 export const loginWithGoogle = () => {

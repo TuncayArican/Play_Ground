@@ -71,7 +71,7 @@ const Login = () => {
                 name="email"
                 variant="outlined"
                 type="email"
-                value={email ?? ""}
+                value={email}
                 autoComplete="on"
                 onChange={(e) => setEmail(e.target.value)}
                 fullWidth
@@ -85,7 +85,7 @@ const Login = () => {
                 variant="outlined"
                 type="password"
                 autoComplete="current-password"
-                value={password ?? ""}
+                value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 fullWidth
               />

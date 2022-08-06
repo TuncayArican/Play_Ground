@@ -31,6 +31,7 @@ const MyNavbar = () => {
   const handleLogout = () => {
     setAnchorEl(null);
     logout();
+    navigate("/login")
   };
 
 /*   const handleRegister = () => {
@@ -47,7 +48,7 @@ const MyNavbar = () => {
             sx={{ flexGrow: 1, cursor: "pointer" }}
             onClick={() => navigate("/")}
           >
-            <code>{"<Tuncay/> "}</code>
+            <code>{"<Tuncay-Blog/> "}</code>
           </Typography>
 
           {currentUser ? (
