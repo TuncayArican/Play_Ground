@@ -20,6 +20,9 @@ const app = initializeApp({
   appId: process.env.REACT_APP_FIREBASE_appId,
 });
 
+export default app;
+
+
 export const auth = getAuth(app);
 
 export const googleProvider = new GoogleAuthProvider();
