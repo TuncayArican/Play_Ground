@@ -28,7 +28,7 @@ const NewBlog = () => {
 
   const handleAdd= () => {
     AddUser(info)
-    navigate('/login'); 
+    navigate('/'); 
    };
 
 

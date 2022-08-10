@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState, useContext} from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
   Container,
@@ -8,12 +8,33 @@ import {
   TextField,
   Button,
 } from "@mui/material";
+import { BlogContext } from '../contexts/BlogContext';
 
 const UpdateBlog = () => {
 
   const navigate = useNavigate();
   const { state } = useLocation();
-  console.log(state);
+
+  const { UpdateUser} = useContext(BlogContext);
+
+  
+  const [info,setInfo]=useState(state)
+
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    console.log(name,value)
+    console.log("merhaba")
+    setInfo({ ...info, [name]: value });
+  };
+
+  const handleUser= () => {
+    UpdateUser(info)
+    navigate('/'); 
+   };
+
+  
 
   return (
     <Container maxWidth="sm">
@@ -39,8 +60,8 @@ const UpdateBlog = () => {
                 id="imageUrl"
                 label="imageUrl"
                 name="imageUrl"
-                value={state.imageUrl}
-                /* onChange={handleChange} */
+                value={info.imageUrl}
+                onChange={handleChange}
                 fullWidth
               />
             </Grid>
@@ -50,8 +71,8 @@ const UpdateBlog = () => {
              id="title"
              label="title"
              name="title"
-             value={state.title}
-             /* onChange={handleChange} */
+             value={info.title}
+             onChange={handleChange}
               fullWidth
               />
             </Grid>
@@ -62,8 +83,8 @@ const UpdateBlog = () => {
                 label="content"
                 name="content"
                 
-                value={state.content}
-                /* onChange={handleChange} */
+                value={info.content}
+                onChange={handleChange}
                 fullWidth
               />
             </Grid>
@@ -72,7 +93,7 @@ const UpdateBlog = () => {
               <Button
                 variant="contained"
                 color="primary"
-            /*     onClick={handleAdd} */
+                onClick={handleUser}
                 fullWidth
               >
                 Update the  Blog

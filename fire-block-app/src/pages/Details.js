@@ -7,11 +7,15 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import { useNavigate, useLocation } from "react-router-dom";
 import { BlogContext } from '../contexts/BlogContext';
+import { AuthContext } from "../contexts/AuthContext";
 
 
 const Details = ({index }) => {
   const navigate = useNavigate();
   const { DeleteUser} = useContext(BlogContext);
+
+    const { currentUser } = useContext(AuthContext);
+  const user = currentUser?.email
   const { state } = useLocation();
   console.log(state);
 
@@ -38,6 +42,11 @@ const Details = ({index }) => {
           alt="img"
         />
         <CardContent>
+
+        <Typography variant="body2" color="text.secondary">
+            {state.user}
+          </Typography>
+          <br />
           <Typography gutterBottom variant="h5" component="div">
             {state.title}
           </Typography>

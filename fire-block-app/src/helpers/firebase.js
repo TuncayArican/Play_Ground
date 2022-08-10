@@ -14,7 +14,7 @@ const app = initializeApp({
   apiKey: process.env.REACT_APP_apiKey,
   authDomain: process.env.REACT_APP_authDomain,
   databaseURL: process.env.REACT_APP_FIREBASE_databaseURL,
-  projectId: "milestone-project-9edda",
+  projectId: process.env.REACT_APP_projectId,
   storageBucket: process.env.REACT_APP_FIREBASE_storageBucket,
   messagingSenderId: process.env.REACT_APP_FIREBASE_messagingSenderId,
   appId: process.env.REACT_APP_FIREBASE_appId,
