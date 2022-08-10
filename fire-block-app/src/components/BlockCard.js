@@ -1,13 +1,8 @@
 import React, { useContext } from 'react';
 import { BlogContext } from '../contexts/BlogContext';
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import { CardMedia } from "@mui/material";
 import loadingGif from "../assets/loading.gif";
+import BlogForm from './BlogForm';
 
 const BlockCard = () => {
 
@@ -33,27 +28,8 @@ const BlockCard = () => {
           justifyContent="space-evenly"
           flexWrap="wrap"
         >
-          {bloglist?.map((item, index) => (
-            <Card sx={{ maxWidth: 345, m: 5, maxHeight: 600 }} key={index}>
-              <CardMedia
-                component="img"
-                height="250"
-                image={item?.imageUrl}
-                alt="img"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {item?.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {item?.content}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">Share</Button>
-                  Detail
-              </CardActions>
-            </Card>
+          {bloglist?.map((item, index) => (     
+            <BlogForm  index={index} item= {item}/> 
           ))}
         </Box>
       )}

@@ -9,7 +9,7 @@ import {
   Button,
 } from "@mui/material";
 
-import { signup,login, loginWithGoogle } from "../helpers/firebase";
+import { signup, loginWithGoogle } from "../helpers/firebase";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 

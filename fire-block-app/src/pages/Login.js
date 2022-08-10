@@ -27,10 +27,9 @@ const Login = () => {
 
   useEffect(() => {
     if (currentUser) {
-      console.log("user");
       navigate("/");
     }
-  }, [currentUser]);
+  }, [currentUser, navigate]);
 
   const handleLogin = () => {
     login(email, password)
